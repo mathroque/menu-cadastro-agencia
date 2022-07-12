@@ -1,34 +1,107 @@
-Algoritmo "semnome"
+Algoritmo "Cadastro agência Trip"
 
 Var
-
-clienteInfos:vetor[1..3] de caractere
-destinoInfos:vetor[1..2] de caractere
+cliente: vetor[1..10] de caracter
+indiceCliente: inteiro
+destino: vetor[1..10] de caracter
+indiceDestino: inteiro
 consulta: inteiro
-
+opcao: inteiro
+i: inteiro
 
 Inicio
-//Cadastro do cliente
-escreva ("Para realizar seu cadastro digite seu nome: ")
-leia (clienteInfos[1])
-escreva ("Digite sua data de nascimento: ")
-leia (clienteInfos[2])
-escreva ("Digite sua cidade de origem: ")
-leia (clienteInfos[3])
-//Cadastro do destino
-escreva ("Digite seu destino: ")
-leia (destinoInfos[1])
-escreva ("Digite a data da viagem: ")
-leia (destinoInfos[2])
-//Consulta
-escreval ("Para consultar os dados da viagem, digite 1. Se deseja finalizar, digite 2: ")
+
+procedimento cadastroCliente()
+inicio
+      indiceCliente <- indiceCliente + 1
+      escreva ("Digite seu nome: ")
+      leia (cliente[indiceCliente])
+      cliente[indiceCliente] <- "cliente: " + cliente[indiceCliente]
+      
+      indiceCliente <- indiceCliente + 1
+      escreva ("Digite sua data de nascimento: ")
+      leia (cliente[indiceCliente])
+      cliente[indiceCliente] <- "data de nascimento: " + cliente[indiceCliente]
+      
+      indiceCliente <- indiceCliente + 1
+      escreva ("Digite seu e-mail: ")
+      leia (cliente[indiceCliente])
+      cliente[indiceCliente] <- "e-mail: " + cliente[indiceCliente]
+      
+fimprocedimento
+
+procedimento cadastroDestino()
+inicio
+      indiceDestino <- indiceDestino + 1
+      escreva ("Digite a cidade de origem: ")
+      leia (destino[indiceDestino])
+      destino[indiceDestino] <- "origem: " + destino[indiceDestino]
+
+      indiceDestino <- indiceDestino + 1
+      escreva ("Digite a cidade destino: ")
+      leia (destino[indiceDestino])
+      destino[indiceDestino] <- "destino: " + destino[indiceDestino]
+
+      indiceDestino <- indiceDestino + 1
+      escreva ("Digite a data da viagem: ")
+      leia (destino[indiceDestino])
+      destino[indiceDestino] <- "data da viagem: " + destino[indiceDestino]
+
+fimprocedimento
+
+procedimento exibirCadastroCliente()
+inicio
+i <- 1
+escreval ("Dados do usuário:")
+      enquanto i < 4 faca
+               escreval (cliente[i])
+               i <- i + 1
+      fimenquanto
+      escreval ("")
+
+fimprocedimento
+
+procedimento exibirCadastroDestino()
+inicio
+i <- 1
+escreval ("Dados da viagem:")
+      enquanto i < 4 faca
+               escreval (destino[i])
+               i <- i + 1
+      fimenquanto
+
+fimprocedimento
+
+
+escreval ("Olá, bem-vindo(a) ao menu de cadastro da agência Trip!")
+escreval ("Para se cadastrar, digite 1. Para finalizar, digite 2.")
 leia (consulta)
+
 Se consulta = 1 entao
-   escreva ("Dados do cliente[ nome: " + clienteInfos[1] + ", nascimento: " + clienteInfos[2] + ", origem: " + clienteInfos[3] + "]. Dados da viagem: [destino: " + destinoInfos[1] + ", data da viagem: " + destinoInfos[2] + "].")
+   cadastroCliente()
+   cadastroDestino()
+   escreval ("")
+   escreval ("")
+   escreval ("Deseja conferir as informações antes de fechar?")
+   escreval ("Digite 1 para conferir, ou 2 para finalizar a operação.")
+   leia (opcao)
+   se opcao = 1 entao
+      escreval ("")
+      exibirCadastroCliente()
+      exibirCadastroDestino()
+      escreval ("")
+      escreval ("Cadastro finalizado com sucesso")
+   fimse
+   se opcao = 2 entao
+      escreval ("Cadastro finalizado com sucesso")
+   fimse
 Fimse
 Se consulta = 2 entao
-     escreva ("Agradecemos!")
+   limpatela
 Fimse
+
+
+
 
 
 
